@@ -1,6 +1,6 @@
 defmodule ReportsGenerator do
   alias ReportsGenerator.Parser
-  
+
   def build(filename) do
     filename
     |> Parser.parse_file()
@@ -8,6 +8,8 @@ defmodule ReportsGenerator do
       sum_values(line, report)
     end)
   end
+
+  def fetch_higher_value(report), do: Enum.max_by(report, fn {_key, value} -> value end)
 
   defp sum_values([id, _food_name, price], report) do
     Map.put(report, id, report[id] + price)
