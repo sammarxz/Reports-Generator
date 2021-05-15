@@ -1,6 +1,6 @@
 # ReportsGenerator
 
-**TODO: Add description**
+Report generator that receives a .csv order file on iFood and returns the food and the user who asked for the most, adding up the total spent on each one.
 
 ## Installation
 
@@ -13,6 +13,31 @@ def deps do
     {:reports_generator, "~> 0.1.0"}
   ]
 end
+```
+
+## Usage
+
+```bash
+$ ìex -S mix
+```
+
+### get Higher Value by user:
+```elixir
+"report_complete.csv"
+|> ReportsGenerator.build()
+|> ReportsGenerator.fetch_higher_value("users")
+```
+
+### get Higher value by food:
+```elixir
+"report_complete.csv"
+|> ReportsGenerator.build()
+|> ReportsGenerator.fetch_higher_value("foods")
+```
+
+## Test
+```bash
+$ mix test
 ```
 
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
